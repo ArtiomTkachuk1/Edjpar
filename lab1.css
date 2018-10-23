@@ -1,0 +1,138 @@
+#divmaintextinput{
+	width:100%;
+    vertical-align: middle;
+	margin-top:10%;
+}
+#lmaintextinput{
+	font-size:500%;
+	width:50%;
+	margin-left:auto;
+	margin-right:auto;
+}
+#maintextinput{
+	display:block;
+	width:50%;
+	margin-left:auto;
+	margin-right:auto;
+	font-size:500%;
+}
+.gobutton{
+	font-size:500%;
+	width:50%;
+	background-color:green;
+	display: block;
+	margin:auto;
+	border-color:black;
+}
+#errordiv,#errordiv1{
+	color:red;
+	font-size:350%;
+	width:50%;
+	margin:auto;
+}
+#errordiv1{
+	height:200px;
+}
+#divatrnametextinput{
+	margin-top:0;
+}
+.latr{
+	font-size:500%;
+	width:50%;
+	float:left;
+	position:relative;
+}
+.atrtextinput{
+	display:block;
+	width:100%;
+	height:100%;
+	font-size:500%;
+	float:left;
+}
+.ndiv{
+	display:inline-block;
+	width:50%;
+	margin:0;
+	padding:0;
+}
+.tc{
+	height:300px;
+}
+.tcc{
+	display:inline-block;
+	width:50%;
+	height:100%;
+	font-size:500%;
+}
+.in{
+	display:block;
+	height:100%;
+	width:100%;
+	font-size:100%;
+}
+#head{
+	display:table-row;
+	width:100%;
+	height:40%;
+	font-size:350%;
+	text-align:center;
+}
+#head1{
+	display:table-cell;
+	width:10%;
+	height:100%;
+}
+#head2{
+	display:table;
+	width:90%;
+	height:30%;
+}
+#head21{
+	display:table-cell;
+	width:100%;
+	height:15%;
+}
+#head22{
+	display:table-row;
+	width:100%;
+	height:15%;
+}
+#head,#head1,#head2{
+	box-sizing: border-box;
+	border-width: 1px;
+	border-style: solid;
+	border-color:black;
+}
+
+.altcollr,.altnum,.headcell{
+	float:left;
+	box-sizing: border-box;
+	border-width: 1px;
+	border-style: solid;
+	border-color:black;
+}
+.altcoll{
+	display:table-row;
+	float:left;
+}
+.altnum{
+	display:table-cell;
+}
+.altcollr{
+	display:table-row;
+}
+.altnum,.altcell{
+	font-size:350%;
+	text-align:center;
+}
+.altcell{
+	float:left;
+	display:table-cell;
+}
+.sel{
+	float:left;
+	width:100%;
+	height:100%;
+	text-align:center;
+	font-size:100%;
+}
