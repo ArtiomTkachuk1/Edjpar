@@ -4,35 +4,39 @@ var dtmain;
 var ans;
 var idmd;
 var q=0;
-var errormessage1="Критериев должно быть больше нуля!";
-var errormessage2="Название не должно быть пустым!";
-var errormessage3="Видов критерия должно быть больше нуля!";
-var errormessage4="Необходимо ввести число!";
-var errormessage5="Названия критериев не могут совпадать";
-var errormessage6="Названия видов одного критерия не могут совпадать";
-var errormessage7="Числовые оценки видов одного критерия не могут совпадать";
-var errormessage8="Не удалось считать фаил";
-var errormessage9="Фаил пуст";
-var errormessage10="Количестово критериев должно быть числом!";
-var errormessage11="Фаил недозаполнен";
-var errormessage12="Количество видов критерия должно быть числом";
+var errormessages=[]
+errormessages[1]="Критериев должно быть больше нуля!";
+errormessages[2]="Название не должно быть пустым!";
+errormessages[3]="Видов критерия должно быть больше нуля!";
+errormessages[4]="Необходимо ввести число!";
+errormessages[5]="Названия критериев не могут совпадать";
+errormessages[6]="Названия видов одного критерия не могут совпадать";
+errormessages[7]="Числовые оценки видов одного критерия не могут совпадать";
+errormessages[8]="Не удалось считать фаил";
+errormessages[9]="Фаил пуст";
+errormessages[10]="Количестово критериев должно быть числом!";
+errormessages[11]="Фаил недозаполнен";
+errormessages[12]="Количество видов критерия должно быть числом";
 var errormessage13_1="Числовые оценки вида критерия ";
 var errormessage13_2=" должны быть числом";
 var errormessage14_1="Альтернатива ";
 var errormessage14_2=" задана некорректно";
-var errormessage15="Названия не должны содержать пробелы";
-var errormessage16="Количество альтернатив должно быть числом";
-var string1="Количество критериев оценки:";
-var string2="Название критерия оценки";
-var string3="Количество видов критерия";
-var string4="Название вида критерия";
-var string5="Числовая оценка вида критерия";
-var string6="Количество альтернатив:";
-var headname1="Альтернативы";
-var headname2="Критерии оценки";
-var buttonname1="Готово";
-var buttonname2="Ввод из файла";
-var buttonname3="Ввод при помощи интерефейса";
+errormessages[15]="Названия не должны содержать пробелы";
+errormessages[16]="Количество альтернатив должно быть числом";
+var strings=[]
+strings[1]="Количество критериев оценки:";
+strings[2]="Название критерия оценки";
+strings[3]="Количество видов критерия";
+strings[4]="Название вида критерия";
+strings[5]="Числовая оценка вида критерия";
+strings[6]="Количество альтернатив:";
+var headnames=[]
+headnames[1]="Альтернативы";
+headnames[2]="Критерии оценки";
+var buttonnames=[]
+buttonnames[1]="Готово";
+buttonnames[2]="Ввод из файла";
+buttonnames[3]="Ввод при помощи интерефейса";
 var names=new Array();
 function drawanswer(){
 	var md=document.getElementById(idmd);
@@ -135,9 +139,9 @@ function finalgui(){
 			dtmain[i][j]=dt[j][1][1];
 	}
 	var md=document.getElementById(idmd);
-	md.innerHTML="<div id="+"head"+"><div id="+"head1"+">"+headname1+"</div><div id="+"head2"+"></div></div>";
+	md.innerHTML="<div id="+"head"+"><div id="+"head1"+">"+headnames[1]+"</div><div id="+"head2"+"></div></div>";
 	var buf=document.getElementById("head2");
-	buf.innerHTML="<div id="+"head21"+">"+headname2+"</div><div id="+"head22"+"></div>";
+	buf.innerHTML="<div id="+"head21"+">"+headnames[2]+"</div><div id="+"head22"+"></div>";
 	buf=document.getElementById("head22");
 	var n=dt.length;
 	var w=100/n;
@@ -185,7 +189,7 @@ function finalgui(){
 	}
 	var gobutton=document.createElement("button");
 	gobutton.className="gobutton";
-	gobutton.innerHTML=buttonname1;
+	gobutton.innerHTML=buttonnames[1];
 	gobutton.align="center";
 	md.appendChild(gobutton);
 	var dl=document.createElement("button");
@@ -207,8 +211,8 @@ function finalgui(){
 function ready4(){
 	var buf=document.getElementById("maintextinput");
 	var lth=buf.value;
-	lth=lth-0;
-	if((lth!=0)&&(isNaN(lth)!=true)){ 
+	lth=parseInt(lth,10);
+	if((lth>0)&&(isNaN(lth)!=true)){ 
 		dtmain=new Array(lth);
 		var buf1=document.getElementById(idmd);
 		buf1.innerHTML="";
@@ -216,15 +220,15 @@ function ready4(){
 	}
 	else{
 		var buf1=document.getElementById("errordiv");
-		buf1.innerHTML=errormessage1;
+		buf1.innerHTML=errormessages[1];
 	}
 }
 function lastgui(){
 	var md=document.getElementById(idmd);
-	md.innerHTML="<div id="+"divmaintextinput"+"><div id="+"lmaintextinput"+">"+string6+"</div><input type="+"text "+"id="+"maintextinput"+"></div>";
+	md.innerHTML="<div id="+"divmaintextinput"+"><div id="+"lmaintextinput"+">"+strings[6]+"</div><input type="+"text "+"id="+"maintextinput"+"></div>";
 	var gobutton=document.createElement('button');
 	gobutton.className="gobutton";
-	gobutton.innerHTML=buttonname1;
+	gobutton.innerHTML=buttonnames[1];
 	gobutton.align="center";
 	md.appendChild(gobutton);
 	var errordiv=document.createElement('div');
@@ -241,11 +245,11 @@ function ready3(){
 		var word=buf.value;
 		var errordiv=document.getElementById("errordiv1");
 		if(word.length==0){
-			errordiv.innerHTML=errormessage2;
+			errordiv.innerHTML=errormessages[2];
 			break;
 		}
 		if(word.indexOf(" ")!=-1){
-			errordiv.innerHTML=errormessage15;
+			errordiv.innerHTML=errormessages[15];
 			break;
 		}
 		lm[0]=word; 
@@ -253,12 +257,12 @@ function ready3(){
 		buf=document.getElementById(str);
 		word=buf.value;
 		if(word==""){
-			errordiv.innerHTML=errormessage4;
+			errordiv.innerHTML=errormessages[4];
 			break;
 		}
-		word=word-0;
+		word=parseInt(word,10);
 		if(isNaN(word)==true){
-			errordiv.innerHTML=errormessage4;
+			errordiv.innerHTML=errormessages[4];
 			break;
 		}
 		lm[1]=word;
@@ -275,11 +279,11 @@ function ready3(){
 			}
 		}
 		if(cos1==false){
-			errordiv.innerHTML=errormessage6;
+			errordiv.innerHTML=errormessages[6];
 			break;
 		}
 		if(cos2==false){
-			errordiv.innerHTML=errormessage7;
+			errordiv.innerHTML=errormessages[7];
 			break;
 		}
 		dt[q][i]=lm;
@@ -306,7 +310,7 @@ function attrgui2(){
 		var tc1=document.createElement("div");
 		tc1.className="tcc";
 		tc.appendChild(tc1);
-		if(i==0) tc1.innerHTML=string4+" "+dt[q][0]+":";
+		if(i==0) tc1.innerHTML=strings[4]+" "+dt[q][0]+":";
 		else{
 			var buf=document.createElement("input");
 			buf.type="text";
@@ -317,7 +321,7 @@ function attrgui2(){
 		var tc2=document.createElement("div");
 		tc2.className="tcc";
 		tc.appendChild(tc2);
-		if(i==0) tc2.innerHTML=string5+" "+dt[q][0]+":";
+		if(i==0) tc2.innerHTML=strings[5]+" "+dt[q][0]+":";
 		else{
 			var buf=document.createElement("input");
 			buf.type="text";
@@ -328,7 +332,7 @@ function attrgui2(){
 	}
 	var gobutton=document.createElement('button');
 	gobutton.className="gobutton";
-	gobutton.innerHTML=buttonname1;
+	gobutton.innerHTML=buttonnames[1];
 	gobutton.align="center";
 	md.appendChild(gobutton);
 	var errordiv=document.createElement('div');
@@ -340,17 +344,17 @@ function ready2(){
 	var buf=document.getElementById("a1");
 	var lth0=buf.value;
 	if(lth0.length==0){
-		errordiv.innerHTML=errormessage2;
+		errordiv.innerHTML=errormessages[2];
 		return;
 	}
 	if(buf.value.indexOf(" ")!=-1){
-		errordiv.innerHTML=errormessage15;
+		errordiv.innerHTML=errormessages[15];
 		return;
 	}
 	else{
 		buf=document.getElementById("a2");
 		var lth=buf.value;
-		lth=lth-0;
+		lth=parseInt(lth,10);
 		if((lth!=0)&&(isNaN(lth)!=true)){
 			var cos=true;
 			for(var o=0;o<q;o++){
@@ -365,23 +369,23 @@ function ready2(){
 			}
 			else{
 				var buf1=document.getElementById("errordiv");
-				buf1.innerHTML=errormessage5;
+				buf1.innerHTML=errormessages[5];
 			}
 		}
 		else{
 			var buf1=document.getElementById("errordiv");
-			buf1.innerHTML=errormessage1;
+			buf1.innerHTML=errormessages[1];
 		}
 	}
 }
 function attrgui(){
 	var md=document.getElementById(idmd);
-	md.innerHTML="<div class="+"ndiv"+"><div class="+"latr"+"><span>"+string2+" "+(q+1)+":</span></div><input type="+"text"+" class="+"atrtextinput id="+"a1"+"></div>"
-	md.innerHTML+="<div class="+"ndiv"+"><div class="+"latr"+"><span>"+string3+" "+(q+1)+":</span></div><input type="+"text"+" class="+"atrtextinput id="+"a2"+"></div>"
+	md.innerHTML="<div class="+"ndiv"+"><div class="+"latr"+"><span>"+strings[2]+" "+(q+1)+":</span></div><input type="+"text"+" class="+"atrtextinput id="+"a1"+"></div>"
+	md.innerHTML+="<div class="+"ndiv"+"><div class="+"latr"+"><span>"+strings[3]+" "+(q+1)+":</span></div><input type="+"text"+" class="+"atrtextinput id="+"a2"+"></div>"
 	var errordiv=document.createElement('div');
 	var gobutton=document.createElement('button');
 	gobutton.className="gobutton";
-	gobutton.innerHTML=buttonname1;
+	gobutton.innerHTML=buttonnames[1];
 	gobutton.align="center";
 	md.appendChild(gobutton);
 	errordiv.id="errordiv";
@@ -391,8 +395,8 @@ function attrgui(){
 function ready1(){
 	var buf=document.getElementById("maintextinput");
 	var lth=buf.value;
-	lth=lth-0;
-	if((lth!=0)&&(isNaN(lth)!=true)){ 
+	lth=parseInt(lth,10);
+	if((lth>0)&&(isNaN(lth)!=true)){ 
 		dt=new Array(lth);
 		var buf1=document.getElementById(idmd);
 		buf1.innerHTML="";
@@ -400,15 +404,15 @@ function ready1(){
 	}
 	else{
 		var buf1=document.getElementById("errordiv");
-		buf1.innerHTML=errormessage1;
+		buf1.innerHTML=errormessages[1];
 	}
 }
 function createfromgui(){
 	var md=document.getElementById(idmd);
-	md.innerHTML="<div id="+"divmaintextinput"+"><div id="+"lmaintextinput"+">"+string1+"</div><input type="+"text "+"id="+"maintextinput"+"></div>";
+	md.innerHTML="<div id="+"divmaintextinput"+"><div id="+"lmaintextinput"+">"+strings[1]+"</div><input type="+"text "+"id="+"maintextinput"+"></div>";
 	var gobutton=document.createElement('button');
 	gobutton.className="gobutton";
-	gobutton.innerHTML=buttonname1;
+	gobutton.innerHTML=buttonnames[1];
 	gobutton.align="center";
 	md.appendChild(gobutton);
 	var errordiv=document.createElement('div');
@@ -443,56 +447,60 @@ function handleFileSelect(evt) {
 		var l=document.getElementById("errordiv");
 		var reqlth=1;
 		if(mas.length<reqlth){
-			l.innerHTML=errormessage9;
+			l.innerHTML=errormessages[9];
 			return;
 		}
-		mas[pointer]=mas[pointer]-0;
+		mas[pointer]=parseInt(mas[pointer],10);
 		if(isNaN(mas[pointer])==true){
-			l.innerHTML=errormessage10;
+			l.innerHTML=errormessages[10];
+			return;
+		}
+		if(mas[pointer]<=0){
+			l.innerHTML=errormessages[3];
 			return;
 		}
 		dt=new Array(mas[pointer]);
 		reqlth=reqlth+dt.length*2;
 		if(mas.length<reqlth){
-			l.innerHTML=errormessage11;
+			l.innerHTML=errormessages[11];
 			return;
 		}
 		for(var i=0;i<dt.length;i++){
 			pointer++;
 			var str=mas[pointer];
 			pointer++;
-			mas[pointer]=mas[pointer]-0;
-			if(isNaN(mas[pointer])==true){l.innerHTML=errormessage12;return;}
-			if(mas[pointer]<=0){l.innerHTML=errormessage3;return;}
+			mas[pointer]=parseInt(mas[pointer],10);
+			if(isNaN(mas[pointer])==true){l.innerHTML=errormessages[12];return;}
+			if(mas[pointer]<=0){l.innerHTML=errormessages[3];return;}
 			dt[i]=new Array((mas[pointer])+1);
 			reqlth=reqlth+(dt[i].length-1)*2;
 			if(mas.length<reqlth){
-				l.innerHTML=errormessage11;
+				l.innerHTML=errormessages[11];
 				return;
 			}
 			dt[i][0]=str;
-			for(var kk=0;kk<i;kk++)if(dt[kk][0]==dt[i][0]){l.innerHTML=errormessage5;return;}
+			for(var kk=0;kk<i;kk++)if(dt[kk][0]==dt[i][0]){l.innerHTML=errormessages[5];return;}
 			for(var j=1;j<dt[i].length;j++){
 				var dti=new Array(2);
 				pointer++;
 				dti[0]=mas[pointer];
 				pointer++;
-				mas[pointer]=mas[pointer]-0;
+				mas[pointer]=parseInt(mas[pointer],10);
 				if(isNaN(mas[pointer])==true){l.innerHTML=errormessage13_1+dt[i][0]+errormessage13_2;return;}
 				dti[1]=mas[pointer];
 				dt[i][j]=dti;
-				for(var kk=1;kk<j;kk++)if(dt[i][kk][0]==dt[i][j][0]){l.innerHTML=errormessage6;return;}
-				for(var kk=1;kk<j;kk++)if(dt[i][kk][1]==dt[i][j][1]){l.innerHTML=errormessage7;return;}
+				for(var kk=1;kk<j;kk++)if(dt[i][kk][0]==dt[i][j][0]){l.innerHTML=errormessages[6];return;}
+				for(var kk=1;kk<j;kk++)if(dt[i][kk][1]==dt[i][j][1]){l.innerHTML=errormessages[7];return;}
 			}
 		}
 		pointer++;
-		mas[pointer]=mas[pointer]-0;
-		if(isNaN(mas[pointer])==true){l.innerHTML=errormessage16;return;}
+		mas[pointer]=parseInt(mas[pointer],10);
+		if(isNaN(mas[pointer])==true){l.innerHTML=errormessages[16];return;}
 		var lltthh=mas[pointer];
 		pointer++;
 		reqlth=reqlth+lltthh*dt.length+1;
 		if(mas.length!=reqlth){
-			l.innerHTML=errormessage11;
+			l.innerHTML=errormessages[11];
 			return;
 		}
 		dtmain=new Array(lltthh);
@@ -545,13 +553,13 @@ function createfirst(){
 	var md=document.getElementById(idmd);
 	var gobutton=document.createElement('button');
 	gobutton.className="gobutton";
-	gobutton.innerHTML=buttonname2;
+	gobutton.innerHTML=buttonnames[2];
 	gobutton.align="center";
 	md.appendChild(gobutton);
 	gobutton.addEventListener("click",createfromfile);
 	var gobutton1=document.createElement('button');
 	gobutton1.className="gobutton";
-	gobutton1.innerHTML=buttonname3;
+	gobutton1.innerHTML=buttonnames[3];
 	gobutton1.align="center";
 	md.appendChild(gobutton1);
 	gobutton1.addEventListener("click",createfromgui);
