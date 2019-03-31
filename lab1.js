@@ -211,7 +211,7 @@ function finalgui(){
 function ready4(){
 	var buf=document.getElementById("maintextinput");
 	var lth=buf.value;
-	lth=parseInt(lth,10);
+	lth=Number(lth,10);
 	if((lth>0)&&(isNaN(lth)!=true)){ 
 		dtmain=new Array(lth);
 		var buf1=document.getElementById(idmd);
@@ -260,7 +260,7 @@ function ready3(){
 			errordiv.innerHTML=errormessages[4];
 			break;
 		}
-		word=parseInt(word,10);
+		word=Number(word,10);
 		if(isNaN(word)==true){
 			errordiv.innerHTML=errormessages[4];
 			break;
@@ -354,7 +354,7 @@ function ready2(){
 	else{
 		buf=document.getElementById("a2");
 		var lth=buf.value;
-		lth=parseInt(lth,10);
+		lth=Number(lth,10);
 		if((lth!=0)&&(isNaN(lth)!=true)){
 			var cos=true;
 			for(var o=0;o<q;o++){
@@ -395,7 +395,7 @@ function attrgui(){
 function ready1(){
 	var buf=document.getElementById("maintextinput");
 	var lth=buf.value;
-	lth=parseInt(lth,10);
+	lth=Number(lth,10);
 	if((lth>0)&&(isNaN(lth)!=true)){ 
 		dt=new Array(lth);
 		var buf1=document.getElementById(idmd);
@@ -450,7 +450,7 @@ function handleFileSelect(evt) {
 			l.innerHTML=errormessages[9];
 			return;
 		}
-		mas[pointer]=parseInt(mas[pointer],10);
+		mas[pointer]=Number(mas[pointer],10);
 		if(isNaN(mas[pointer])==true){
 			l.innerHTML=errormessages[10];
 			return;
@@ -469,7 +469,7 @@ function handleFileSelect(evt) {
 			pointer++;
 			var str=mas[pointer];
 			pointer++;
-			mas[pointer]=parseInt(mas[pointer],10);
+			mas[pointer]=Number(mas[pointer],10);
 			if(isNaN(mas[pointer])==true){l.innerHTML=errormessages[12];return;}
 			if(mas[pointer]<=0){l.innerHTML=errormessages[3];return;}
 			dt[i]=new Array((mas[pointer])+1);
@@ -485,7 +485,7 @@ function handleFileSelect(evt) {
 				pointer++;
 				dti[0]=mas[pointer];
 				pointer++;
-				mas[pointer]=parseInt(mas[pointer],10);
+				mas[pointer]=Number(mas[pointer],10);
 				if(isNaN(mas[pointer])==true){l.innerHTML=errormessage13_1+dt[i][0]+errormessage13_2;return;}
 				dti[1]=mas[pointer];
 				dt[i][j]=dti;
@@ -494,7 +494,7 @@ function handleFileSelect(evt) {
 			}
 		}
 		pointer++;
-		mas[pointer]=parseInt(mas[pointer],10);
+		mas[pointer]=Number(mas[pointer],10);
 		if(isNaN(mas[pointer])==true){l.innerHTML=errormessages[16];return;}
 		var lltthh=mas[pointer];
 		pointer++;
